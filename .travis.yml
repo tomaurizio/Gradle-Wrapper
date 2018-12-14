@@ -4,6 +4,7 @@ jdk:
   - openjdk8
   - oraclejdk8
   - openjdk9
+  - openjdk10
 
 before_install:
   - sudo apt-get update
