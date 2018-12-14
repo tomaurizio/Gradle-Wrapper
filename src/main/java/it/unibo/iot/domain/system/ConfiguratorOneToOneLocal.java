@@ -9,21 +9,21 @@ import it.unibo.iot.domain.interfaces.Configurator;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
-public class ConfiguratorOneToOne implements Configurator {
+public class ConfiguratorOneToOneLocal implements Configurator {
     private Runnable producer;
     private Runnable consumer;
     private Buffer buffer;
     private int bufferCapacity;
 
     public static void main(String[] args) throws InterruptedException {
-        ConfiguratorOneToOne configurator = new ConfiguratorOneToOne(10);
+        ConfiguratorOneToOneLocal configurator = new ConfiguratorOneToOneLocal(10);
         configurator.setup();
         configurator.start();
         Thread.sleep(TimeUnit.SECONDS.toMillis(5));
         configurator.teardown();
     }
 
-    public ConfiguratorOneToOne(int bufferCapacity) {
+    public ConfiguratorOneToOneLocal(int bufferCapacity) {
         this.bufferCapacity = bufferCapacity;
     }
 
