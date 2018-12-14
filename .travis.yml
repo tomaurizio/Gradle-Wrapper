@@ -1,0 +1,20 @@
+language: java
+
+install: true
+
+env:
+  global:
+  - SURGE_LOGIN="danilo.pianini@gmail.com"
+  - secure: "HonhUTmbLmvKoL8eRUEEKTuGBuaWFxno9NgVu3Fji4soZFi2tsEVF0WHaDoFqQ3n+ocFOZg9CYOPKQGE13eLuZMoqRk0e4TCl7WRDo5+s9DoqAxcHdZwIt8GFcUn3DCLNL6Q3KFCIV+MVsewDlmhAPYOJPjlU+bV0HwqPTzLmjrhU6Cmwk9Nr7YgIUOjo39ulOQwTctprxZdAxyEZKxV+4WVYMWU8UkGA8ePU5LZ1ApivCCYRtKZijn3C+E8mkaOhTsd6pxD1JXzKBXVSgoDHgsPKZ5aMnw2rFz2SS2pWnWxyBTOD1T95g7P/Ixo88IXltTYlbEckWBYr+fytlVCjgj+xLpSssf+zKJiyYQM6vHqLmHs0ZRRb7L4buirfaNmEOypCNHsVJ8G90CPYvL0yR9shRdqQIKYSwcPpL1WQJPKy97Lja0a/fJLWlz9XOH8Y28hjTrgUU/7mPU83Tyw9ZLMkH8usAE1sCn0of0/49UaiZAyT6uF0g3TJ6735yC9nq+jAyJto2bzDVdXPvbkRnV31/R9dbr56jd27xtUYEmWV/ejevAi1jFwtiCnxj8RMJudMmcK3rz8ygcgKfeeYEm0w2CTA20akSIeaovPJRc1f4LfF32MZ1wcH7e3sZZ+Pl7Nkj67THwqlx59PySirkPba5wWPnG95zMuKth9G4A="
+
+script:
+  - ./gradlew test javadoc assemble buildDashboard
+
+deploy:
+  - provider: surge
+    project: build/reports/jacoco/test/html/
+    domain: scm-iot-2018-coverage.surge.sh
+    skip_cleanup: true
+    on:
+      repo: DanySK/Gradle-Wrapper
+      branch: develop

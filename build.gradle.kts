@@ -1,5 +1,7 @@
 plugins {
     `java-library`
+    jacoco
+    `build-dashboard`
 }
 
 repositories {
@@ -17,3 +19,9 @@ dependencies {
 
     runtimeOnly("ch.qos.logback:logback-classic:1.2.3")
 }
+
+val jacocoTestReport by tasks.named("jacocoTestReport")
+jacocoTestReport.dependsOn(tasks.named("test"))
+
+val buildDashboard by tasks.named("buildDashboard")
+buildDashboard.dependsOn(jacocoTestReport)
