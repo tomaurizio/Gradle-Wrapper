@@ -5,3 +5,6 @@
 build
 .idea/
 scm.iml
+out/
+prodcons.log
+archived/
