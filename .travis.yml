@@ -3,7 +3,7 @@ language: java
 jdk:
   - openjdk8
   - oraclejdk8
-  - oraclejdk9git
+  - openjdk9
 
 before_install:
   - sudo apt-get update
