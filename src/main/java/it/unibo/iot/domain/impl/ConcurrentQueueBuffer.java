@@ -1,6 +1,6 @@
-package it.unibo.iot.impl;
+package it.unibo.iot.domain.impl;
 
-import it.unibo.iot.interfaces.Buffer;
+import it.unibo.iot.domain.interfaces.Buffer;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

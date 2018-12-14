@@ -1,10 +1,10 @@
-package it.unibo.iot.system;
+package it.unibo.iot.domain.system;
 
-import it.unibo.iot.impl.ConcurrentQueueBuffer;
-import it.unibo.iot.impl.ConsumerActivity;
-import it.unibo.iot.impl.ProducerActivity;
-import it.unibo.iot.interfaces.Buffer;
-import it.unibo.iot.interfaces.Configurator;
+import it.unibo.iot.domain.impl.ConcurrentQueueBuffer;
+import it.unibo.iot.domain.impl.ConsumerActivity;
+import it.unibo.iot.domain.impl.ProducerActivity;
+import it.unibo.iot.domain.interfaces.Buffer;
+import it.unibo.iot.domain.interfaces.Configurator;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;

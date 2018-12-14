@@ -1,8 +1,7 @@
-package it.unibo.iot.impl;
+package it.unibo.iot.domain.impl;
 
-import it.unibo.iot.interfaces.Buffer;
-import it.unibo.iot.interfaces.Consumer;
-import it.unibo.iot.interfaces.Producer;
+import it.unibo.iot.domain.interfaces.Buffer;
+import it.unibo.iot.domain.interfaces.Producer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

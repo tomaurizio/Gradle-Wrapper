@@ -1,11 +1,10 @@
 package it.unibo.iot;
 
 import com.google.common.collect.Streams;
-import it.unibo.iot.impl.ConcurrentQueueBuffer;
-import it.unibo.iot.impl.ConsumerActivity;
-import it.unibo.iot.impl.ProducerActivity;
-import it.unibo.iot.interfaces.Buffer;
-import org.checkerframework.checker.regex.RegexUtil;
+import it.unibo.iot.domain.impl.ConcurrentQueueBuffer;
+import it.unibo.iot.domain.impl.ConsumerActivity;
+import it.unibo.iot.domain.impl.ProducerActivity;
+import it.unibo.iot.domain.interfaces.Buffer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,9 +17,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ConfiguratorOneToOneTest {
 
@@ -44,7 +41,7 @@ public class ConfiguratorOneToOneTest {
                 .filter(s -> s.contains("Consume"))
                 .map(s -> s.substring(s.lastIndexOf(" ")))
                 .collect(Collectors.toList());
-        
+
         Assert.assertTrue(producedStuff.size()==consumedStuff.size() &&
                 Streams.zip(producedStuff.stream(), consumedStuff.stream(), (a, b) -> a.equals(b)).allMatch(x -> x));
     }
