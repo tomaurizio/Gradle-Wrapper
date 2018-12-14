@@ -1,7 +1,11 @@
 package it.unibo.iot.domain.system;
 
-import it.unibo.iot.domain.impl.*;
+import it.unibo.iot.domain.impl.prodcons.ConsumerServer;
+import it.unibo.iot.domain.impl.prodcons.ProducerClient;
+import it.unibo.iot.domain.impl.support.EventEmitterFactory;
+import it.unibo.iot.domain.impl.support.LogEmitterFactory;
 import it.unibo.iot.domain.interfaces.Configurator;
+import it.unibo.iot.domain.interfaces.EmitterFactory;
 import it.unibo.iot.interaction.impl.ZMQConnectionFactory;
 import it.unibo.iot.interaction.interfaces.ConnectionFactory;
 
@@ -14,6 +18,7 @@ public class ConfiguratorOneToOneClientServer implements Configurator {
     private int bufferCapacity;
     ConnectionFactory connectionFactory;
     private static final int port = 8001;
+    private static final String host = "127.0.0.1";
 
     public static void main(String[] args) throws InterruptedException {
         //ConnectionFactory factory = new TCPConnectionFactory();
@@ -31,8 +36,9 @@ public class ConfiguratorOneToOneClientServer implements Configurator {
     }
 
     @Override public void setup(){
-        consumerServer = new ConsumerServer(connectionFactory.connection(), port);
-        producerClient = new ProducerClient(connectionFactory.connection(), port);
+        EmitterFactory ef = new LogEmitterFactory();
+        consumerServer = new ConsumerServer(ef, connectionFactory.connection(), port);
+        producerClient = new ProducerClient(ef, connectionFactory.connection(), host, port);
     }
 
     @Override public void start(){

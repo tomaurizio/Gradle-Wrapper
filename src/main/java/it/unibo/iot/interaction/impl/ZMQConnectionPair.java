@@ -7,30 +7,9 @@ import org.zeromq.ZMQ;
 
 import java.io.IOException;
 
-public abstract class ZMQConnection implements Connection {
-    private ZMQ.Socket s;
+public class ZMQConnectionPair extends ZMQConnection {
 
-    abstract protected int getClientSocketType();
-    abstract protected int getServerSocketType();
+    protected int getClientSocketType(){ return ZMQ.PAIR; };
+    protected int getServerSocketType(){ return ZMQ.PAIR; };
 
-    @Override
-    public ConnectionHandle connectAsClient(String host, int port) throws IOException {
-        ZContext ctx = new ZContext();
-        s = ctx.createSocket(getClientSocketType());
-        s.connect("tcp://"+host+":"+port);
-        return new ZMQConnectionHandle(s);
-    }
-
-    @Override
-    public ConnectionHandle connectAsServer(int port) throws IOException {
-        ZContext ctx = new ZContext();
-        s = ctx.createSocket(getServerSocketType());
-        s.bind("tcp://*:"+port);
-        return new ZMQConnectionHandle(s);
-    }
-
-    @Override
-    public void closeConnection() throws IOException {
-        s.close();
-    }
 }

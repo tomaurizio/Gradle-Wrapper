@@ -1,8 +1,8 @@
 package it.unibo.iot;
 
-import it.unibo.iot.domain.impl.ConcurrentQueueBuffer;
-import it.unibo.iot.domain.impl.ConsumerActivity;
-import it.unibo.iot.domain.impl.ProducerActivity;
+import it.unibo.iot.domain.impl.prodcons.ConcurrentQueueBuffer;
+import it.unibo.iot.domain.impl.prodcons.ConsumerActivity;
+import it.unibo.iot.domain.impl.prodcons.ProducerActivity;
 import it.unibo.iot.domain.interfaces.Buffer;
 import org.junit.Before;
 import org.junit.Test;

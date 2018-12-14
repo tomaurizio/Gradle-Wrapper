@@ -7,6 +7,6 @@ public class ZMQConnectionFactory implements ConnectionFactory {
 
     @Override
     public Connection connection() {
-        return new ZMQConnection();
+        return new ZMQConnectionPubSub();
     }
 }
