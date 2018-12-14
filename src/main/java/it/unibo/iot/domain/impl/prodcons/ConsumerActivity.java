@@ -1,4 +1,4 @@
-package it.unibo.iot.domain.impl;
+package it.unibo.iot.domain.impl.prodcons;
 
 import it.unibo.iot.domain.interfaces.Buffer;
 import it.unibo.iot.domain.interfaces.Consumer;
