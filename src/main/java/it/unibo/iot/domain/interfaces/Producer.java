@@ -1,4 +1,4 @@
-package it.unibo.iot.interfaces;
+package it.unibo.iot.domain.interfaces;
 
 public interface Producer {
     Object produce();

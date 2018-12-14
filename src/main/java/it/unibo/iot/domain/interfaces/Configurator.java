@@ -1,4 +1,4 @@
-package it.unibo.iot.interfaces;
+package it.unibo.iot.domain.interfaces;
 
 public interface Configurator {
     default void setup() { }

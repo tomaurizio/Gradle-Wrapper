@@ -1,12 +1,9 @@
 package it.unibo.iot;
 
-import com.google.common.collect.Streams;
-import it.unibo.iot.impl.ConcurrentQueueBuffer;
-import it.unibo.iot.impl.ConsumerActivity;
-import it.unibo.iot.impl.ProducerActivity;
-import it.unibo.iot.interfaces.Buffer;
-import org.checkerframework.checker.regex.RegexUtil;
-import org.junit.Assert;
+import it.unibo.iot.domain.impl.prodcons.v0.ConcurrentQueueBuffer;
+import it.unibo.iot.domain.impl.prodcons.v0.ConsumerActivity;
+import it.unibo.iot.domain.impl.prodcons.v0.ProducerActivity;
+import it.unibo.iot.domain.interfaces.Buffer;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,9 +15,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ConfiguratorOneToOneTest {
 
@@ -36,17 +30,7 @@ public class ConfiguratorOneToOneTest {
     @Test public void basicTest() throws IOException {
         List<String> lines = Files.readAllLines(new File("prodcons.log").toPath(), StandardCharsets.UTF_8);
 
-        List<String> producedStuff = lines.stream()
-                .filter(s -> s.contains("Produce"))
-                .map(s -> s.substring(s.lastIndexOf(" ")))
-                .collect(Collectors.toList());
-        List<String> consumedStuff = lines.stream()
-                .filter(s -> s.contains("Consume"))
-                .map(s -> s.substring(s.lastIndexOf(" ")))
-                .collect(Collectors.toList());
-        
-        Assert.assertTrue(producedStuff.size()==consumedStuff.size() &&
-                Streams.zip(producedStuff.stream(), consumedStuff.stream(), (a, b) -> a.equals(b)).allMatch(x -> x));
+        ProducerConsumerAssertions.assertOrderedConsumptionOnLog(lines);
     }
 
 }
