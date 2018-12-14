@@ -1,8 +1,7 @@
 package it.unibo.iot.domain.system;
 
-import it.unibo.iot.domain.impl.prodcons.ConsumerServer;
-import it.unibo.iot.domain.impl.prodcons.ProducerClient;
-import it.unibo.iot.domain.impl.support.EventEmitterFactory;
+import it.unibo.iot.domain.impl.prodcons.v1.ConsumerServer;
+import it.unibo.iot.domain.impl.prodcons.v1.ProducerClient;
 import it.unibo.iot.domain.impl.support.LogEmitterFactory;
 import it.unibo.iot.domain.interfaces.Configurator;
 import it.unibo.iot.domain.interfaces.EmitterFactory;

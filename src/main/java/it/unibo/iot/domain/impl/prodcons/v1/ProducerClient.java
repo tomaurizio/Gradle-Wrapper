@@ -1,12 +1,10 @@
-package it.unibo.iot.domain.impl.prodcons;
+package it.unibo.iot.domain.impl.prodcons.v1;
 
 import it.unibo.iot.domain.interfaces.Emitter;
 import it.unibo.iot.domain.interfaces.EmitterFactory;
 import it.unibo.iot.domain.interfaces.Producer;
 import it.unibo.iot.interaction.interfaces.Connection;
 import it.unibo.iot.interaction.interfaces.ConnectionHandle;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 

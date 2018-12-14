@@ -1,27 +1,21 @@
 package it.unibo.iot;
 
-import it.unibo.iot.domain.impl.prodcons.ConcurrentQueueBuffer;
-import it.unibo.iot.domain.impl.prodcons.ConsumerServer;
-import it.unibo.iot.domain.impl.prodcons.ProducerClient;
+import it.unibo.iot.domain.impl.prodcons.v1.ConsumerServer;
+import it.unibo.iot.domain.impl.prodcons.v1.ProducerClient;
 import it.unibo.iot.domain.impl.support.EventEmitterFactory;
 import it.unibo.iot.domain.impl.support.EventService;
 import it.unibo.iot.domain.impl.support.GlobalConfig;
-import it.unibo.iot.domain.interfaces.Buffer;
 import it.unibo.iot.domain.interfaces.EmitterFactory;
 import it.unibo.iot.interaction.impl.ZMQConnectionFactory;
 import it.unibo.iot.interaction.interfaces.ConnectionFactory;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class ConfiguratorOneToOneClientServerTest {
     private EventService evs;
