@@ -1,1 +1,9 @@
 language: java
+# Disbale Travis install phase; non lanciare i comandi di default per aumentare la reattività
+# install: true oppure
+install:
+  - echo "Do nothing"
+
+# Exceute custom build:
+script:
+  - ./gradlew clean buildDashboard
