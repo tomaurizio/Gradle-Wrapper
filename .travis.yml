@@ -1,8 +1,8 @@
 language: java
 
-env: 
+env:
   global:
-    - secure: "MvpRiHTyjq8IvP0aDPBujdgH6sVsnMnKgHSz44WsQNI9JPxqDTJ6H5NxYG51nYeuATKTw4d2bHgPAxPAna98yW/dEreWpPLjYLl3TERaJ3Ag0hdwW6mxZrFadWKyoVuJRxSI3BXgwJtumyWcBJA6od3I/CPoSiWbVOcD8d3bmVSmKx6+dVkHiHdwGAY02AYlCjld3CKrdnJyQzKd1jJH6X1s3Qw8OnF/z8WFf0lbvADAjFEi2gV5+3K/wCemoGNqD3OfbYOEylzMQWOjOPqzMP45ac2PbcWvfSf5NeMXVBIhD+7wwMFzr8pAwVi5slxS2Y9z/yKbmBR57mXJyS++sLvRX82mhX4oEslHbjy2PvYp6K/TnNRPwRd68mBntthWS+MvBQxjc4wgNjBlNMwmzPQ25pvlvm2NejHRwRAulReVhal8IQuNJj2KrTPO/+W9x2KdGJk7OTd3V6f3TVCxrGM/ta1Fftb4oQlv2N9qg92PxJF+g5oaJ+DBk3080/6Ky0e3Bz9uEUuy4Z5me6SI4bAi3sEco0FJIfKWo/iVFuyk10FzEwOqmaEUWx3qBCnZnnMkbOLd86YDkk7tzV0WoDtAWdFgpHIHFvC1UFqLlZydSCHva8vPM8U74trHsk57tge2nq1jjmKGioT9HBf6ETEtFzM9froBNjsHfOJciSI=""
+    - secure: "MvpRiHTyjq8IvP0aDPBujdgH6sVsnMnKgHSz44WsQNI9JPxqDTJ6H5NxYG51nYeuATKTw4d2bHgPAxPAna98yW/dEreWpPLjYLl3TERaJ3Ag0hdwW6mxZrFadWKyoVuJRxSI3BXgwJtumyWcBJA6od3I/CPoSiWbVOcD8d3bmVSmKx6+dVkHiHdwGAY02AYlCjld3CKrdnJyQzKd1jJH6X1s3Qw8OnF/z8WFf0lbvADAjFEi2gV5+3K/wCemoGNqD3OfbYOEylzMQWOjOPqzMP45ac2PbcWvfSf5NeMXVBIhD+7wwMFzr8pAwVi5slxS2Y9z/yKbmBR57mXJyS++sLvRX82mhX4oEslHbjy2PvYp6K/TnNRPwRd68mBntthWS+MvBQxjc4wgNjBlNMwmzPQ25pvlvm2NejHRwRAulReVhal8IQuNJj2KrTPO/+W9x2KdGJk7OTd3V6f3TVCxrGM/ta1Fftb4oQlv2N9qg92PxJF+g5oaJ+DBk3080/6Ky0e3Bz9uEUuy4Z5me6SI4bAi3sEco0FJIfKWo/iVFuyk10FzEwOqmaEUWx3qBCnZnnMkbOLd86YDkk7tzV0WoDtAWdFgpHIHFvC1UFqLlZydSCHva8vPM8U74trHsk57tge2nq1jjmKGioT9HBf6ETEtFzM9froBNjsHfOJciSI="
 
 # Disbale Travis install phase; non lanciare i comandi di default per aumentare la reattività
 # install: true oppure
@@ -17,3 +17,6 @@ deploy:
   provider: surge
   project: build/reports/
   domain: tomaurizio.surge.sh
+  skip_cleanup: true
+  on:
+    all_branches: true
